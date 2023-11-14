@@ -72,3 +72,13 @@ dependencies {
     // core
     implementation("androidx.core:core-ktx:1.12.0")
 }
+
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {
+        kotlinOptions {
+            freeCompilerArgs += listOf(
+                "-opt-in=coil.annotation.ExperimentalCoilApi"
+            )
+        }
+    }
+}
